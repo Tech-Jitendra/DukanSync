@@ -1,15 +1,22 @@
-// App.tsx
-import { Stack } from 'expo-router';
-import React from 'react';
-import { PaperProvider } from 'react-native-paper';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { JsStack } from './layouts/js-stack';
 
-export default function App() {
+export default function Layout() {
     return (
-        <PaperProvider>
-            <SafeAreaProvider>
-                <Stack />
-            </SafeAreaProvider>
-        </PaperProvider>
+        <JsStack
+            screenOptions={
+                {
+                    headerStyle: {
+                        backgroundColor: '#f4511e',
+                    },
+                    headerTintColor: '#fff',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                    },
+                }}
+        >
+            <JsStack.Screen name="index" />
+            <JsStack.Screen options={{ headerShown: false }} name="(tabs)" />
+        </JsStack>
     );
 }
+
