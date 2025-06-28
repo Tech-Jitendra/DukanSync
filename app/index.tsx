@@ -1,6 +1,7 @@
-import HomeScreen from '@/screens/HomeScreen';
-import React from 'react';
+import { isShopRegistered } from '@/store/shop'; // MMKV helper
+import { Redirect } from 'expo-router';
 
 export default function Index() {
-    return <HomeScreen />;
+    const registered = isShopRegistered();
+    return <Redirect href={registered ? '/users' : '/register'} />;
 }
