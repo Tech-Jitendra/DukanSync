@@ -1,6 +1,7 @@
+import { router } from 'expo-router';
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { Button, HelperText, TextInput, Title } from 'react-native-paper';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { Button, HelperText, TextInput, Title, TouchableRipple } from 'react-native-paper';
 
 const SignUpScreen = () => {
     const [name, setName] = useState('');
@@ -109,6 +110,24 @@ const SignUpScreen = () => {
             >
                 Sign Up
             </Button>
+            <View style={styles.footer}>
+                <TouchableRipple
+                    onPress={() => console.log('Forgot Password')}
+                    style={styles.input}
+                >
+                    <HelperText type="info" visible>
+                        Forgot Password?
+                    </HelperText>
+                </TouchableRipple>
+                <TouchableRipple
+                    onPress={() => router.push('/LoginScreen')}
+                    style={styles.input}
+                >
+                    <HelperText type="info" visible>
+                        Don't Have an Account? Sign Up
+                    </HelperText>
+                </TouchableRipple>
+            </View>
         </ScrollView>
     );
 };
@@ -129,6 +148,11 @@ const styles = StyleSheet.create({
     },
     button: {
         marginTop: 16,
+    },
+    footer: {
+        marginTop: 24,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 });
 

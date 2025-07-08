@@ -1,10 +1,8 @@
-// import LoginScreen from './Authentication/LoginScreen';
-import JsStack from './layouts/js-stack';
+import JsStack from "app/layouts/js-stack";
 
 export default function Layout() {
     return (
         <JsStack
-            // initialRouteName={'auth'}
             id={undefined}
             screenOptions={
                 {
@@ -17,9 +15,8 @@ export default function Layout() {
                     },
                 }}
         >
-            {/* <JsStack.Screen name="index" /> */}
-            <JsStack.Screen options={{ headerShown: false }} name="(auth)" />
-            <JsStack.Screen options={{ headerShown: false }} name="(tabs)" />
+            <JsStack.Screen options={{ headerShown: false }} name="LoginScreen" />
+            <JsStack.Screen options={{ headerShown: false }} name="SignUpScreen" />
         </JsStack>
     );
 }
