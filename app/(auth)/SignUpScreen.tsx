@@ -1,13 +1,14 @@
 import { router } from 'expo-router';
 import React, { useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import { Button, HelperText, TextInput, Title, TouchableRipple } from 'react-native-paper';
+import { Button, HelperText, TextInput, Title, TouchableRipple, useTheme } from 'react-native-paper';
 
 const SignUpScreen = () => {
+    const theme = useTheme();
     const [name, setName] = useState('');
-    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [secureText, setSecureText] = useState(true);
 
@@ -39,9 +40,10 @@ const SignUpScreen = () => {
             <TextInput
                 label="Name"
                 value={name}
-                onChangeText={setName}
                 style={styles.input}
                 autoCapitalize="words"
+                onChangeText={setName}
+                cursorColor={theme.colors['green10']}
             />
             <HelperText type="error" visible={submitted && !name}>
                 Name is required
