@@ -41,7 +41,6 @@ const SignUpScreen = () => {
                 value={name}
                 onChangeText={setName}
                 style={styles.input}
-                mode="outlined"
                 autoCapitalize="words"
             />
             <HelperText type="error" visible={submitted && !name}>
@@ -53,7 +52,6 @@ const SignUpScreen = () => {
                 value={username}
                 onChangeText={setUsername}
                 style={styles.input}
-                mode="outlined"
                 autoCapitalize="none"
             />
             <HelperText type="error" visible={submitted && !username}>
@@ -65,7 +63,6 @@ const SignUpScreen = () => {
                 value={email}
                 onChangeText={setEmail}
                 style={styles.input}
-                mode="outlined"
                 keyboardType="email-address"
                 autoCapitalize="none"
             />
@@ -78,7 +75,6 @@ const SignUpScreen = () => {
                 value={phone}
                 onChangeText={setPhone}
                 style={styles.input}
-                mode="outlined"
                 keyboardType="phone-pad"
             />
             <HelperText type="error" visible={submitted && !isPhoneValid(phone)}>
@@ -90,7 +86,6 @@ const SignUpScreen = () => {
                 value={password}
                 onChangeText={setPassword}
                 style={styles.input}
-                mode="outlined"
                 secureTextEntry={secureText}
                 right={
                     <TextInput.Icon
@@ -108,23 +103,17 @@ const SignUpScreen = () => {
                 onPress={handleSignUp}
                 style={styles.button}
             >
-                Sign Up
+                <HelperText type='info' visible style={styles.buttonText}>
+                    Submit
+                </HelperText>
             </Button>
             <View style={styles.footer}>
-                <TouchableRipple
-                    onPress={() => console.log('Forgot Password')}
-                    style={styles.input}
-                >
-                    <HelperText type="info" visible>
-                        Forgot Password?
-                    </HelperText>
-                </TouchableRipple>
                 <TouchableRipple
                     onPress={() => router.push('/LoginScreen')}
                     style={styles.input}
                 >
                     <HelperText type="info" visible>
-                        Don't Have an Account? Sign Up
+                        Already have an Account? Login
                     </HelperText>
                 </TouchableRipple>
             </View>
@@ -148,11 +137,18 @@ const styles = StyleSheet.create({
     },
     button: {
         marginTop: 16,
+        height: 48
     },
     footer: {
         marginTop: 24,
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    buttonText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        color: '#fff',
     },
 });
 
