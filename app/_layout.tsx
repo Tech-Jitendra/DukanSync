@@ -21,7 +21,7 @@ export default function Layout() {
                     },
                 }}
             >
-                <JsStack.Screen options={{ headerShown: false }} name="(auth)" />
+                {/* <JsStack.Screen options={{ headerShown: false }} name="(auth)" />*/}
                 <JsStack.Screen options={{ headerShown: false }} name="(tabs)" />
             </JsStack>
         </PaperProvider>
