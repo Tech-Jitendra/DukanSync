@@ -1,15 +1,30 @@
-// App.tsx
-import { Stack } from 'expo-router';
-import React from 'react';
-import { PaperProvider } from 'react-native-paper';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+// import LoginScreen from './Authentication/LoginScreen';
+import { PaperProvider, useTheme } from 'react-native-paper';
+import JsStack from './layouts/js-stack';
 
-export default function App() {
+
+import React from 'react';
+
+export default function Layout() {
+    const theme = useTheme()
     return (
         <PaperProvider>
-            <SafeAreaProvider>
-                <Stack />
-            </SafeAreaProvider>
+            <JsStack
+                id={undefined}
+                screenOptions={{
+                    headerStyle: {
+                        backgroundColor: theme.colors.primary,
+                    },
+                    headerTintColor: '#fff',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                    },
+                }}
+            >
+                <JsStack.Screen options={{ headerShown: false }} name="(auth)" />
+                <JsStack.Screen options={{ headerShown: false }} name="(tabs)" />
+            </JsStack>
         </PaperProvider>
     );
 }
+
